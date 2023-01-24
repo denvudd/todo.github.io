@@ -6,9 +6,6 @@ import Task from './components/Task';
 function App() {
   const [tasks, setTasks] = useState([]);
 
-  const numberComplete = tasks.filter(item => item.done).length;
-  const numberTotal = tasks.length;
-
   useEffect(() => {
       const tasks = JSON.parse(localStorage.getItem('tasks'));
       setTasks(tasks);
@@ -51,6 +48,9 @@ function App() {
       return newTasks;
     });
   }
+
+  const numberComplete = tasks.filter(item => item.done).length;
+  const numberTotal = tasks.length;
 
   function getMessage() {
     const percentage = numberComplete / numberTotal * 100;
